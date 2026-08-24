@@ -5,7 +5,7 @@ import express from 'express';
 import { app as serverApp, startServer } from '../server/src/index.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PORT = 4100;
+const PORT = parseInt(process.env.PORT || '4100', 10);
 const DIST = path.join(__dirname, '..', 'client', 'dist');
 
 let mainWindow = null;
