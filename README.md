@@ -7,6 +7,12 @@ mengekstrak metadata judul & penulis, mencari hasil terbaik lewat
 **Open Library** dan **Google Books**, lalu merename file ke format
 `[Judul]-[Penulis]`.
 
+## Screenshot
+
+![UI demo (data dummy)](docs/screenshot.png)
+
+> Screenshot mockup UI dengan data dummy — bukan data riil.
+
 ## Cara pakai
 
 ```bash
