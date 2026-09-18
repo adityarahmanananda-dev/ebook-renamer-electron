@@ -2,55 +2,52 @@
 
 [![CI](https://github.com/adityarahmanananda-dev/ebook-renamer-electron/actions/workflows/ci.yml/badge.svg)](https://github.com/adityarahmanananda-dev/ebook-renamer-electron/actions/workflows/ci.yml)
 
-Aplikasi desktop **Electron** untuk menscan folder berisi file `.epub` / `.pdf`,
-mengekstrak metadata judul & penulis, mencari hasil terbaik lewat
-**Open Library** dan **Google Books**, lalu merename file ke format
-`[Judul]-[Penulis]`.
+A desktop **Electron** app that scans folders of `.epub` / `.pdf` files, extracts title and author metadata, finds the best match via **Open Library** and **Google Books**, and renames files to `[Title]-[Author]`.
 
 ## Screenshot
 
-![UI demo (data dummy)](docs/screenshot.png)
+![UI demo (dummy data)](docs/screenshot.png)
 
-> Screenshot mockup UI dengan data dummy — bukan data riil.
+> Screenshot is a UI mockup with dummy data — not real data.
 
-## Cara pakai
+## Usage
 
 ```bash
-npm install      # sekali saja (pertama kali)
-npm start        # selanjutnya cukup ini
+npm install      # once, first time
+npm start        # afterwards
 ```
 
-`npm start` otomatis menginstal dependensi client kalau belum ada, build React
-kalau belum ada, lalu membuka jendela app.
+`npm start` automatically installs client dependencies if missing, builds the React client if needed, then opens the app window.
 
-Di dalam aplikasi:
-1. Klik **📁 Pilih Folder…** untuk memilih folder lewat dialog native (tanpa ketik path manual).
-2. Klik **Scan Folder**.
-3. Klik **Cari otomatis** per file (atau isi judul/penulis manual).
-4. Klik **Terapkan Semua Rename**.
+In the app:
+1. Click **📁 Choose Folder…** to select a folder via the native dialog (no manual path typing).
+2. Click **Scan Folder**.
+3. Click **Search automatically** per file (or fill in title/author manually).
+4. Click **Apply All Renames**.
 
-## Opsional: API key Google Books
+## Optional: Google Books API key
 
-Untuk hasil pencarian yang lebih stabil:
+For more stable search results:
+
 ```bash
 GOOGLE_BOOKS_API_KEY=xxx npm start
 ```
-Tanpa key, Open Library tetap dipakai sebagai fallback. Setiap provider punya
-timeout agar tidak menggantung.
 
-## Struktur proyek
+Without a key, Open Library is used as fallback. Each provider has its own timeout so it never hangs.
+
+## Project structure
 
 ```
-electron/        main process + preload (dialog pilih folder via IPC)
-server/src/      backend Express (scan, ekstrak metadata, search, rename)
-client/          frontend React (Vite)
-launch.mjs       launcher: auto-install + build + jalankan Electron
+electron/        main process + preload (native folder dialog via IPC)
+server/src/      Express backend (scan, metadata extraction, search, rename)
+client/          React frontend (Vite)
+launch.mjs       launcher: auto-install + build + run Electron
 ```
 
 ## Packaging (installer)
 
 ```bash
-npm run dist     # hasil di folder release/ (AppImage / deb)
+npm run dist     # output in release/ (AppImage / deb)
 ```
 
-`release/` adalah artefak build dan tidak ikut di-commit.
+`release/` is a build artifact and is not committed.
