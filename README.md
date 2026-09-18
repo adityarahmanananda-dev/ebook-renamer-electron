@@ -1,5 +1,7 @@
 # Ebook Renamer
 
+[![CI](https://github.com/adityarahmanananda-dev/ebook-renamer-electron/actions/workflows/ci.yml/badge.svg)](https://github.com/adityarahmanananda-dev/ebook-renamer-electron/actions/workflows/ci.yml)
+
 Aplikasi desktop **Electron** untuk menscan folder berisi file `.epub` / `.pdf`,
 mengekstrak metadata judul & penulis, mencari hasil terbaik lewat
 **Open Library** dan **Google Books**, lalu merename file ke format
